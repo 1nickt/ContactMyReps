@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="[% settings.charset %]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>[% IF title %][% title %] - [% END %]Contact My Representatives</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+    <!-- form validator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+
+  </head>
+  <body class="body">
+    <div class="banner-container" onClick="window.location.assign('/')">
+      <div class="banner-headline">Contact My Representatives</div>
+      <div>
+        <span class="banner-subhead">Silence betokes consent.</span> <span class="menu-container">[% INCLUDE 'menu.tt' %]</span>
+      </div>
+    </div>
+    <div class="main-content-container">
+[% content %]
+    </div>
+  </body>
+</html>

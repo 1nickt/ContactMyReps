@@ -1,2 +1,2 @@
 # ContactMyReps
-The contactmyreps.com web application
+Dancer2 webapp for contactmyreps.com

@@ -1,0 +1,196 @@
+<!-- Begin template [% template.name %] -->
+<!--  |                                 -->
+<!--  v                                 -->
+      <div>
+        <h3>Find your elected representatives</h3>
+
+        <p>
+          Enter your address and get a list of all your elected representatives with their contact information.
+        </p>
+        <p>
+          Then make your voice heard!
+        </p>
+
+        <form id='lookup' method="post" action="/find-by-address">
+          <p>
+            <table style="border: 1px solid black; background: #f9f9ff">
+              <tr>
+                <td align="right" class="nowrap">
+                   Address:
+                </td>
+                <td>
+                  <input id="address"
+                         name="address"
+                         size="60"
+                         placeholder="Enter a complete U.S. address"
+                         [%- IF address -%]
+                           value="[%- address -%]"
+                         [%- END -%]
+                         required>
+                </td>
+              </tr>
+              <tr>
+                <td colspan=2>
+                  [% recaptcha %]
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input type="submit" id="submit"></td>
+              </tr>
+            </table>
+          </p>
+        </form>
+      </div>
+
+[% IF error %]
+      <span class="error">
+        Sorry, there was an error: "[%- error.message -%]". Please try a different search.
+      </span>
+[% END %]
+
+[% IF officials %]
+      <div>
+        <table id="officials" class="cell-border compact display" style="width: 600px; float: left">
+          <thead>
+            <tr>
+              <th>
+                Title
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <script>
+
+          function format (row) {
+              // `data` is the original data object for the row
+              var out = '<table cellpadding="4" cellspacing="0" border="0" style="padding-left:50px;" class="compact display">'+
+                  '<tr>'+
+                    '<td class="vtop">Name:</td>'+
+                    '<td class="vtop">'+ row.name +'</td>'+
+                  '</tr>'+
+
+                  '<tr>'+
+                    '<td class="vtop">Title:</td>'+
+                    '<td class="vtop">'+ row.title +'</td>'+
+                  '</tr>'+
+
+                  '<tr>'+
+                    '<td style="vertical-align: top">Addresses:</td>'+
+                    '<td style="vertical-align: top">';
+
+                       $.each(row.addresses, function( index ) {
+                           var address = row.addresses[index];
+                           out += address.line1;
+                           if (typeof address.line2 !== 'undefined') {
+                               out += ' '+ address.line2;
+                           }
+                           out += '<br>'+ address.city +' '+ address.state +' '+ address.zip + '<br>';
+                      });
+
+                      out += '</td>' +
+                  '</tr>'+
+                  '<tr>'+
+                    '<td style="vertical-align: top">Phone numbers:</td>'+
+                    '<td style="vertical-align: top">';
+
+                       $.each(row.phone_numbers, function( index ) {
+                           var phone_number = row.phone_numbers[index];
+                           out += phone_number +'<br>';
+                      });
+
+                      out += '</td>' +
+                  '</tr>';
+
+                  out += '<tr>'+
+                    '<td style="vertical-align: top">Email addresses:</td>'+
+                    '<td style="vertical-align: top">';
+
+                       $.each(row.emails, function( index ) {
+                           var email = row.emails[index];
+                           out += email +'<br>';
+                      });
+
+                      out += '</td>' +
+                  '</tr>';
+
+                  out += '<tr>'+
+                    '<td style="vertical-align: top">Websites:</td>'+
+                    '<td style="vertical-align: top">';
+
+                       $.each(row.websites, function( index ) {
+                           var website = row.websites[index];
+                           out += '<a href="'+ website +'">'+ website +'</a><br>';
+                      });
+
+                      out += '</td>' +
+                  '</tr>';
+
+                  out += '<tr>'+
+                    '<td style="vertical-align: top">Social media:</td>'+
+                    '<td style="vertical-align: top">';
+
+                       $.each(row.social_media, function( index ) {
+                           var media = row.social_media[index];
+                           out += media.type +' : '+ media.id +'<br>';
+                      });
+
+                      out += '</td>' +
+                  '</tr>';
+
+              out += '</table>';
+
+              return out;
+          }
+
+           $(document).ready( function () {
+
+              var table = $('#officials').DataTable({
+                  columns  : [
+                      { data : 'title' },
+                      { data : 'name' },
+                      {
+                        className      : 'details-control',
+                        orderable      : false,
+                        data           : null,
+                        defaultContent : ''
+                      }
+                  ],
+                  data     : [%- officials -%],
+                  dom      : 't',
+                  ordering : false,
+                  paging   : false
+              });
+
+              // Add event listener for opening and closing details
+              $('#officials tbody').on('click', 'td.details-control', function () {
+                  var tr = $(this).closest('tr');
+                  var row = table.row( tr );
+
+                  if ( row.child.isShown() ) {
+                      // This row is already open - close it
+                      row.child.hide();
+                      tr.removeClass('shown');
+                  }
+                  else {
+                      // Open this row
+                      row.child( format(row.data()) ).show();
+                      tr.addClass('shown');
+                  }
+              } );
+          } );
+
+      </script>
+
+[% END %]
+
+<!--  ^                                 -->
+<!--  |                                 -->
+<!-- end template [% template.name %]   -->

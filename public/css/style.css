@@ -1,0 +1,118 @@
+html {
+  height: 100%;
+}
+
+.body {
+  height:           100%;
+  font-family:      Verdana,Arial,Helvetica,sans-serif;
+  font-size:        10pt;
+  color:            #333;
+  background-color: #fff;
+  margin:           0;
+  display:          block;
+  box-sizing:       border-box;
+}
+
+/* Banner */
+
+.banner-container {
+  background:    #f9f9ff;
+  height:        75px;
+  border-bottom: 1px solid #ccc;
+}
+
+.banner-headline {
+  font-family:  "Courier New",monospace;
+  font-size:    220%;
+  font-weight:  bold;
+  padding-left: 8px;
+  padding-top:  8px;
+}
+
+.banner-subhead {
+  color:        #cccccc;
+  font-size:    125%;
+  padding-left: 8px;
+  padding-top:  2px;
+}
+
+/* Menu */
+
+.menu-container {
+  color:         #cccccc;
+  padding-top:   2px;
+  padding-right: 2px;
+  float:         right;
+}
+
+a.menu-link:link, a.menu-link:visited {
+  color: #cccccc;
+}
+
+a.menu-link:hover, a.menu-link:active {
+  color: #000000;
+}
+
+/* Main content */
+
+.main-content-container {
+  height:       100%;
+  width:        100%;
+  padding-left:  8px;
+  padding-right: 8px;
+}
+
+.generic-content-container {
+  padding-top: 8px;
+}
+
+.contact-container {
+  width: 90%;
+}
+
+.vtop table, .vtop th, .vtop td {
+  vertical-align: top;
+}
+
+.noborder {
+  border: 0;
+}
+
+/* force all other columns to be as small as possible */
+.expander {
+  width: 99%;
+}
+
+/* Don't let expander make us wrap */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Error messages */
+
+.error {
+  font-size        : 80%;
+  font-weight      : bold;
+  color            : black;
+  background-color : #ffdd99;
+  padding          : 4px;
+  border           : 1px solid red;
+}
+
+
+/* Footer */
+
+.footer {
+  position:     fixed;
+  bottom:       2px;
+  width:        100%;
+  padding-left: 8px;
+}
+
+td.details-control {
+    background: url('/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('/details_close.png') no-repeat center center;
+}

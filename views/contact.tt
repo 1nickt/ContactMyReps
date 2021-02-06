@@ -1,0 +1,56 @@
+<!-- Begin template [% template.name %] -->
+<!--  |                                 -->
+<!--  v                                 -->
+      <div class='contact-container'>
+        <h2>Contact us</h2>
+        <form id='contact-form' method="post" action="/contact">
+          <p>
+            If you'd like to get in touch with us, please use this form.
+          </p>
+          <p>
+            <table style="width: 100%">
+              <tr>
+                <td align="right" class="nowrap">Your email:</td>
+                <td class="expander"><input class="expander" id="sender" name="sender"></td>
+              </tr>
+              <tr>
+                <td align="right" class="nowrap">Confirm it, please:</td>
+                <td class="expander"><input class="expander" id="sender_confirm" name="sender_confirm"></td>
+              </tr>
+              <tr>
+                <td align="right" class="nowrap">Subject:</td>
+                <td class="expander"><input class="expander" name="subject" required></td>
+              </tr>
+              <tr>
+                <td align="right" valign="top" class="nowrap">Message:</td>
+                <td class="expander"><textarea class="expander" rows="20" name="body" required></textarea></td>
+              </tr>
+              <tr>
+                <td align="right" class="nowrap">
+                  No Bots!
+                </td>
+                <td>
+                  [% recaptcha %]
+[% IF bypass_recaptcha -%]<input type="hidden" name="bypass_recaptcha" value="[% bypass_recaptcha %]">[%- END %]
+                </td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td><input type="submit"></td>
+              </tr>
+            </table>
+          </p>
+        </form>
+        <script>
+          $('#contact-form').validate({
+              rules: {
+                  sender: { email: true, equalTo: '#sender_confirm', required: true },
+                  sender_confirm: { email: true, equalTo: '#sender', required: true },
+              },
+          });
+        </script>
+      </div>
+<!--  ^                                 -->
+<!--  |                                 -->
+<!-- end template [% template.name %]   -->

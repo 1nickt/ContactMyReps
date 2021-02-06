@@ -1,0 +1,22 @@
+appname: ContactMyReps
+
+layout: main
+
+charset: UTF-8
+
+template: template_toolkit
+engines:
+    template:
+        template_toolkit:
+            start_tag: '[%'
+            end_tag:   '%]'
+
+plugins:
+    reCAPTCHA:
+        site_key: 6Ld8bS8UAAAAADRah3-lCf12JqDzBE3hFngK0Byd
+        secret:   6Ld8bS8UAAAAAJCgH5OzKXwsIObxWHSBSNIGLRm7
+        options:
+            theme: light
+            type:  image
+            size:  normal
+
