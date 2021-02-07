@@ -97,7 +97,7 @@ a.menu-link:hover, a.menu-link:active {
   background-color : #ffdd99;
   border           : 1px solid red;
   width            : 600px;
-  display          : inline-block;
+  display          : block;
 }
 
 
