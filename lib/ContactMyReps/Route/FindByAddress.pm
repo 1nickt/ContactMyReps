@@ -12,6 +12,7 @@ package ContactMyReps::Route::FindByAddress;
 
 use Dancer2 appname => 'ContactMyReps';
 use Dancer2::Plugin::reCAPTCHA;
+use Path::Tiny;
 use Try::Tiny;
 
 use Net::Google::CivicInformation::Representatives;
@@ -33,6 +34,10 @@ post '/find-by-address' => sub {
     if ( not $params->{address} ) {
         send_error('Error: address is required.', 400 );
     }
+
+    my $log = path('/var/log/ContactMyReps-queries.txt');
+
+    $log->append("$params->{address}\n");
 
     my $client = Net::Google::CivicInformation::Representatives->new;
 
