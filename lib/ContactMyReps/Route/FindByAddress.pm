@@ -12,6 +12,7 @@ package ContactMyReps::Route::FindByAddress;
 
 use Dancer2 appname => 'ContactMyReps';
 use Dancer2::Plugin::reCAPTCHA;
+use Encode;
 use Path::Tiny;
 use Try::Tiny;
 
@@ -49,10 +50,9 @@ post '/find-by-address' => sub {
         $result{error} = $response->{error};
     }
     else {
-        $result{officials} = encode_json($response->{officials});
+        $result{officials} = decode_utf8(encode_json($response->{officials}));
     }
-use XXX;
-YYY \%result;
+
     return template 'find-by-address', \%result;
 };
 
