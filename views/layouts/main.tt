@@ -26,11 +26,11 @@
     </div>
     <div class="main-content-container">
 [% content %]
-    </div>
-    <div class="footer">
-      Provided by <a target="_new" href="https://nicktonkin.net">nicktonkin.net</a>. Built in the <a target="_new" href="https://perl.org">Perl programming language</a>
-      on the <a target="_new" href="https://metacpan.org/pod/Dancer2">Dancer2</a> web app platform using the <a target="_new" href="https://developers.google.com/civic-information">Google Civic Information API</a>
-      communicating via an <a target="_new" href="https://metacpan.org/pod/Net::Google::CivicInformation">open source Perl client</a>.<br>
+      <div class="footer">
+        Provided by <a target="_new" href="https://nicktonkin.net">nicktonkin.net</a>. Built in the <a target="_new" href="https://perl.org">Perl programming language</a>
+        on the <a target="_new" href="https://metacpan.org/pod/Dancer2">Dancer2</a> web app platform using the <a target="_new" href="https://developers.google.com/civic-information">Google Civic Information API</a>
+        communicating via an <a target="_new" href="https://metacpan.org/pod/Net::Google::CivicInformation">open source Perl client</a>.<br>
+      </div>
     </div>
   </body>
 </html>

@@ -105,17 +105,16 @@ a.menu-link:hover, a.menu-link:active {
 .footer {
   position:     fixed;
   bottom:       2px;
-  width:        100%;
   padding:      4px;
   font-family:  "Courier New", monospace;
   font-size:    50%;
-  background:   #206020;
-  color:        #ffffe6;
+  background:   #f2f2f2;
+  color:        #666666;
   width:        600px;
 }
 
 .footer a:link, .footer a:visited {
-    color:           #fff000;
+    color:           #000000;
     text-decoration: none ;
 }
 
