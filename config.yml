@@ -11,12 +11,7 @@ engines:
             start_tag: '[%'
             end_tag:   '%]'
 
-plugins:
-    reCAPTCHA:
-        site_key: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
-        secret:   6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
-        options:
-            theme: light
-            type:  image
-            size:  normal
+recaptcha:
+    site_key: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+    secret:   6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
 

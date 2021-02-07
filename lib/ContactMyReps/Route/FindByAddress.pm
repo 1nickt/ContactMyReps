@@ -11,7 +11,6 @@ Form for looking up officials by address.
 package ContactMyReps::Route::FindByAddress;
 
 use Dancer2 appname => 'ContactMyReps';
-use Dancer2::Plugin::reCAPTCHA;
 use Encode;
 use Path::Tiny;
 use Try::Tiny;
@@ -21,7 +20,7 @@ use Net::Google::CivicInformation::Representatives;
 get '/find-by-address' => sub {
     my $params = params;
     return template 'find-by-address', {
-        recaptcha_key => config->{plugins}{reCAPTCHA}{site_key},
+        recaptcha_key => config->{recaptcha}{site_key},
     };
 };
 
@@ -49,7 +48,7 @@ post '/find-by-address' => sub {
         $result{officials} = decode_utf8(encode_json($response->{officials}));
     }
 
-    $result{recaptcha_key} = config->{plugins}{reCAPTCHA}{site_key};
+    $result{recaptcha_key} = config->{recaptcha}{site_key};
 
     return template 'find-by-address', \%result;
 };
