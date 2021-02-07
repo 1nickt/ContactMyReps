@@ -30,13 +30,12 @@
                 </td>
               </tr>
               <tr>
-                <td colspan=2>
+                <td>
+                  <input type="submit" id="submit">
+                </td>
+                <td>
                   [% recaptcha %]
                 </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td><input type="submit" id="submit"></td>
               </tr>
             </table>
           </p>
