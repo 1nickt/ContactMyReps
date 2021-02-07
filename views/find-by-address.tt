@@ -11,9 +11,17 @@
           Then make your voice heard!
         </p>
 
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <script>
+            function onSubmit(token) {
+                $('#lookup').submit();
+            }
+        </script>
+
         <form id='lookup' method="post" action="/find-by-address">
           <p>
-            <table style="border: 1px solid black; background: #f9f9ff">
+            <table style="border: 1px solid black; background: #f9f9ff; width: 600px">
               <tr>
                 <td align="right" class="nowrap">
                    Address:
@@ -31,20 +39,24 @@
               </tr>
               <tr>
                 <td>
-                  <input type="submit" id="submit">
-                </td>
-                <td>
-                  [% recaptcha %]
+                  <button class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback='onSubmit'>Submit query </button>
                 </td>
               </tr>
             </table>
           </p>
         </form>
+
+        <script>
+            $("#lookup").validate();
+        </script>
+
       </div>
 
 [% IF error %]
       <span class="error">
-        Sorry, there was an error: "[%- error.message -%]". Please try a different search.
+        <p style="padding: 4px">
+            Sorry, there was an error: "[%- error.message -%]". Please try a different search.
+        </p>
       </span>
 [% END %]
 
@@ -149,7 +161,7 @@
               return out;
           }
 
-           $(document).ready( function () {
+          $(document).ready( function () {
 
               var table = $('#officials').DataTable({
                   columns  : [

@@ -28,9 +28,9 @@ get '/find-by-address' => sub {
 post '/find-by-address' => sub {
     my $params = params;
 
-    if ( ! recaptcha_verify( $params->{'g-recaptcha-response'} )->{'success'} ) {
-        send_error( 'Sorry, you look like a robot. Access denied. If you are a human, with good intentions, please go back and try again.', 401 );
-    }
+#    if ( ! recaptcha_verify( $params->{'g-recaptcha-response'} )->{'success'} ) {
+#        send_error( 'Sorry, you look like a robot. Access denied. If you are a human, with good intentions, please go back and try again.', 401 );
+#    }
 
     if ( not $params->{address} ) {
         send_error('Error: address is required.', 400 );
@@ -54,7 +54,7 @@ post '/find-by-address' => sub {
     }
 
     $result{recaptcha} = recaptcha_display;
-    
+
     return template 'find-by-address', \%result;
 };
 

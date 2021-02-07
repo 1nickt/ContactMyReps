@@ -95,15 +95,15 @@ a.menu-link:hover, a.menu-link:active {
   font-weight      : bold;
   color            : black;
   background-color : #ffdd99;
-  padding          : 4px;
   border           : 1px solid red;
+  width            : 600px;
+  display          : inline-block;
 }
 
 
 /* Footer */
 
 .footer {
-  padding:      6px;
   border:       1px solid black;
   margin:       6px 0px 0px 0px;
   font-family:  "Courier New", monospace;
