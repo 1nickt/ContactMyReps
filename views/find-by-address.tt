@@ -39,6 +39,8 @@
               </tr>
               <tr>
                 <td>
+                </td>
+                <td>
                   <button class="g-recaptcha" data-sitekey="[% recaptcha_key %]" data-callback='onSubmit'>Submit&nbsp;query</button>
                 </td>
               </tr>
