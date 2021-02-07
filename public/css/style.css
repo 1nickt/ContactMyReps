@@ -103,9 +103,9 @@ a.menu-link:hover, a.menu-link:active {
 /* Footer */
 
 .footer {
-  position:     fixed;
-  bottom:       2px;
-  padding:      4px;
+  padding:      6px;
+  border:       1px solid black;
+  margin:       6px 0px 0px 0px;
   font-family:  "Courier New", monospace;
   font-size:    50%;
   background:   #f2f2f2;
