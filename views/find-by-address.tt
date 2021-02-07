@@ -39,7 +39,7 @@
               </tr>
               <tr>
                 <td>
-                  <button class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback='onSubmit'>Submit query </button>
+                  <button class="g-recaptcha" data-sitekey="[% recaptcha_key %]" data-callback='onSubmit'>Submit query </button>
                 </td>
               </tr>
             </table>
