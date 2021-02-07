@@ -13,8 +13,8 @@ engines:
 
 plugins:
     reCAPTCHA:
-        site_key: 6Ld8bS8UAAAAADRah3-lCf12JqDzBE3hFngK0Byd
-        secret:   6Ld8bS8UAAAAAJCgH5OzKXwsIObxWHSBSNIGLRm7
+        site_key: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+        secret:   6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
         options:
             theme: light
             type:  image

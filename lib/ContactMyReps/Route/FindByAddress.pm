@@ -21,14 +21,14 @@ use Net::Google::CivicInformation::Representatives;
 get '/find-by-address' => sub {
     my $params = params;
     return template 'find-by-address', {
-        app->environment eq 'development' ? () : (recaptcha => recaptcha_display),
+        recaptcha => recaptcha_display,
     };
 };
 
 post '/find-by-address' => sub {
     my $params = params;
 
-    if ( app->environment ne 'development' and ! recaptcha_verify( $params->{'g-recaptcha-response'} )->{'success'} ) {
+    if ( ! recaptcha_verify( $params->{'g-recaptcha-response'} )->{'success'} ) {
         send_error( 'Sorry, you look like a robot. Access denied. If you are a human, with good intentions, please go back and try again.', 401 );
     }
 
@@ -53,6 +53,8 @@ post '/find-by-address' => sub {
         $result{officials} = decode_utf8(encode_json($response->{officials}));
     }
 
+    $result{recaptcha} = recaptcha_display;
+    
     return template 'find-by-address', \%result;
 };
 
