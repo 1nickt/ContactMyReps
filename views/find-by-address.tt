@@ -96,6 +96,11 @@
                   '</tr>'+
 
                   '<tr>'+
+                    '<td class="vtop">Party:</td>'+
+                    '<td class="vtop">'+ row.party +'</td>'+
+                  '</tr>'+
+
+                  '<tr>'+
                     '<td style="vertical-align: top">Addresses:</td>'+
                     '<td style="vertical-align: top">';
 
@@ -147,15 +152,37 @@
                   '</tr>';
 
                   out += '<tr>'+
-                    '<td style="vertical-align: top">Social media:</td>'+
-                    '<td style="vertical-align: top">';
+                     '<td style="vertical-align: top">Social media:</td>'+
+                     '<td style="vertical-align: top">'+
+                       '<table cellpadding="4" cellspacing="0" border="0" class="compact display">';
 
                        $.each(row.social_media, function( index ) {
                            var media = row.social_media[index];
-                           out += media.type +' : '+ media.id +'<br>';
+                           out += '<tr><td>';
+
+                           if ( media.type == 'Facebook' ) {
+                               out += '<img src="/facebook-logo.png"></td>'+
+                               '</td><td><a target="_new" href="https://www.facebook.com/'+ media.id +'">'+ media.id + '</a></td>';
+                           }
+
+                           else if ( media.type == 'Twitter' ) {
+                               out += '<img src="/twitter-logo.png"></td>'+
+                               '</td><td><a target="_new" href="https://twitter.com/'+ media.id +'">'+ media.id + '</a></td>';
+                           }
+
+                           else if ( media.type == 'YouTube' ) {
+                               out += '<img src="/youtube-logo.png"></td>'+
+                               '</td><td><a target="_new" href="https://youtube.com/'+ media.id +'">'+ media.id + '</a></td>';
+                           }
+
+                           else {
+                               out += media.type + '</td><td>'+ media.id +'</td>';
+                           }
+
+                          out += '</tr>';
                       });
 
-                      out += '</td>' +
+                      out += '</table></td>' +
                   '</tr>';
 
               out += '</table>';
