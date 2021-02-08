@@ -24,6 +24,16 @@
     <!-- form validator -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0T26S0JKRZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0T26S0JKRZ');
+    </script>
+
   </head>
   <body class="body">
     <div class="banner-container" onClick="window.location.assign('/')">
