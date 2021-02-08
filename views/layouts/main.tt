@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- jQuery -->
     <script
 			  src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -29,7 +29,7 @@
     <div class="banner-container" onClick="window.location.assign('/')">
       <div class="banner-headline">Contact My Representatives</div>
       <div>
-        <span class="banner-subhead">Because silence betokes consent.</span> <span class="menu-container">[% INCLUDE 'menu.tt' %]</span>
+        <span class="banner-subhead">Because silence betokens consent.</span> <span class="menu-container">[% INCLUDE 'menu.tt' %]</span>
       </div>
     </div>
     <div class="main-content-container">
