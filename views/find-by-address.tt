@@ -11,14 +11,6 @@
           Then make your voice heard!
         </p>
 
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-        <script>
-            function onSubmit(token) {
-                $('#lookup').submit();
-            }
-        </script>
-
         <form id='lookup' method="post" action="/find-by-address">
           <p>
             <table style="border: 1px solid black; background: #f9f9ff; width: 600px">
@@ -30,7 +22,7 @@
                   <input id="address"
                          name="address"
                          size="60"
-                         placeholder="Enter a complete U.S. address"
+                         placeholder="Enter a U.S. address or zip code"
                          [%- IF address -%]
                            value="[%- address -%]"
                          [%- END -%]
@@ -41,7 +33,7 @@
                 <td>
                 </td>
                 <td>
-                  <button class="g-recaptcha" data-sitekey="[% recaptcha_key %]" data-callback='onSubmit'>Submit&nbsp;query</button>
+                  <input type="submit" value="Submit&nbsp;query">
                 </td>
               </tr>
             </table>
