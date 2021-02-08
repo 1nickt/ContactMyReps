@@ -26,16 +26,6 @@
                 <td class="expander"><textarea class="expander" rows="20" name="body" required></textarea></td>
               </tr>
               <tr>
-                <td align="right" class="nowrap">
-                  No Bots!
-                </td>
-                <td>
-                  [% recaptcha %]
-[% IF bypass_recaptcha -%]<input type="hidden" name="bypass_recaptcha" value="[% bypass_recaptcha %]">[%- END %]
-                </td>
-              </tr>
-
-              <tr>
                 <td></td>
                 <td><input type="submit"></td>
               </tr>
