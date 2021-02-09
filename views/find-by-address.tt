@@ -2,6 +2,7 @@
 <!--  |                                 -->
 <!--  v                                 -->
       <div>
+        <br>
         <h3>Find your elected representatives</h3>
 
         <p>
@@ -55,6 +56,10 @@
 [% END %]
 
 [% IF officials %]
+      <div class='bmc'>
+        Here are your representatives.<br>
+        <span style="font-size: 80%">If you'd like to support this site, please <a href="https://www.buymeacoffee.com/contactmyreps">buy us a coffee</a> 🙏</span>
+      </div>
       <div>
         <table id="officials" class="cell-border compact display" style="width: 600px; float: left">
           <thead>

@@ -100,6 +100,15 @@ a.menu-link:hover, a.menu-link:active {
   display          : block;
 }
 
+/* Buy Me a Coffee */
+.bmc {
+  border:       1px solid black;
+  margin:       2px;
+  text-align:   center;
+  background:   #ecf9ec;
+  color:        #666666;
+  width:        600px;
+}
 
 /* Footer */
 
