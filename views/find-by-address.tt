@@ -56,9 +56,22 @@
 [% END %]
 
 [% IF officials %]
-      <div class='bmc'>
-        Here are your representatives.<br>
-        <span style="font-size: 80%">If you'd like to support this site, please <a href="https://www.buymeacoffee.com/contactmyreps">buy us a coffee</a> 🙏</span>
+      <div class="bmc" style="display: flex; justify-content: center">
+        <table style="width: 400px align-self: center">
+          <tr>
+            <td colspan=2 style="text-align: center">
+              Here are your representatives.
+            </td>
+          </tr>
+          <tr>
+            <td style="valign: bottom; text-align: right">
+              <span style="font-size: 80%">If you'd like to support this site, please</span>
+            </td>
+            <td style="text-align: right">
+              <a href="https://www.buymeacoffee.com/contactmyreps" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 108px !important;" ></a>
+            </td>
+          </tr>
+        </table>
       </div>
       <div>
         <table id="officials" class="cell-border compact display" style="width: 600px; float: left">
