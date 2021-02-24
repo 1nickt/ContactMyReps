@@ -19,9 +19,7 @@ use Net::Google::CivicInformation::Representatives;
 
 get '/find-by-address' => sub {
     my $params = params;
-    return template 'find-by-address', {
-        recaptcha_key => config->{recaptcha}{site_key},
-    };
+    return template 'find-by-address';
 };
 
 post '/find-by-address' => sub {
@@ -47,8 +45,6 @@ post '/find-by-address' => sub {
     else {
         $result{officials} = decode_utf8(encode_json($response->{officials}));
     }
-
-    $result{recaptcha_key} = config->{recaptcha}{site_key};
 
     return template 'find-by-address', \%result;
 };
