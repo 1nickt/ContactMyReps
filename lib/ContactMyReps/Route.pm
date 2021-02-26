@@ -9,7 +9,7 @@ use Module::Runtime 'require_module';
 
 my $module_base = 'ContactMyReps::Route::';
 
-my %modules = %{ config->{route_classes} };
+my %modules = %{ config->{route_modules} };
 
 my @required_modules = grep { $modules{$_} } keys %modules;
 

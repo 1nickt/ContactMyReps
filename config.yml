@@ -3,7 +3,7 @@ layout   : main
 charset  : UTF-8
 template : template_toolkit
 
-route_classes :
+route_modules :
     FindByAddress : 1
     Contact       : 1
 
