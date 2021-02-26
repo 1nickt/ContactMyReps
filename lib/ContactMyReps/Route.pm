@@ -5,16 +5,15 @@ ContactMyReps::Route - The route handler loader
 =cut
 
 use Dancer2;
-use Module::Runtime qw/ require_module /;
+use Module::Runtime 'require_module';
 
-my $base = 'ContactMyReps::Route::';
+my $module_base = 'ContactMyReps::Route::';
 
-my %required_modules = (
-    FindByAddress => 1,
-    Contact       => 1,
-);
+my %modules = %{ config->{route_classes} };
 
-require_module( $base . $_ ) for grep { $required_modules{ $_ } == 1 } ( keys %required_modules );
+my @required_modules = grep { $modules{$_} } keys %modules;
+
+require_module( $module_base . $_ ) for @required_modules;
 
 get '/' => sub {
     forward '/find-by-address';
