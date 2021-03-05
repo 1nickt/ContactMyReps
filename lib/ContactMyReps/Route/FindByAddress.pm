@@ -31,10 +31,6 @@ post '/find-by-address' => sub {
         send_error('Error: address is required.', 400 );
     }
 
-    my $logfile = path('/var/log/ContactMyReps-queries.txt');
-
-    $logfile->append("$params->{address}\n");
-
     my $client = Net::Google::CivicInformation::Representatives->new;
 
     my %result = ( address => $params->{address} );
