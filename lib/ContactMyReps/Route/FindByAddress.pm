@@ -12,7 +12,6 @@ package ContactMyReps::Route::FindByAddress;
 
 use Dancer2 appname => 'ContactMyReps';
 use Encode;
-use Path::Tiny;
 use Try::Tiny;
 
 use Net::Google::CivicInformation::Representatives;
@@ -28,7 +27,7 @@ post '/find-by-address' => sub {
     debug("looking up $params->{address}");
 
     if ( not $params->{address} ) {
-        send_error('Error: address is required.', 400 );
+        send_error('Error: address is required.', 400);
     }
 
     my $client = Net::Google::CivicInformation::Representatives->new;
