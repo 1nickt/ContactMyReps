@@ -17,7 +17,3 @@ engines :
     logger :
          LogAny :
              category : ContactMyReps
-             logger   :
-                 - JSON
-                 - /tmp/test.log
-
