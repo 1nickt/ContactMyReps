@@ -7,9 +7,17 @@ route_modules :
     FindByAddress : 1
     Contact       : 1
 
+logger : LogAny
+
 engines :
     template :
         template_toolkit :
             start_tag : '[%'
             end_tag   : '%]'
+    logger :
+         LogAny :
+             category : ContactMyReps
+             logger   :
+                 - JSON
+                 - /tmp/test.log
 

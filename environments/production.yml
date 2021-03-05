@@ -3,9 +3,6 @@
 # only log warning and error messsages
 log: "warning"
 
-# log message to a file in logs/
-logger: "file"
-
 # don't consider warnings critical
 warnings: 0
 
@@ -14,3 +11,10 @@ show_errors: 0
 
 # disable server tokens in production environments
 no_server_tokens: 1
+
+engines :
+    logger :
+         LogAny :
+             logger   :
+                 - JSON
+                 - /var/log/ContactMyReps/app.log

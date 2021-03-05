@@ -25,13 +25,15 @@ get '/find-by-address' => sub {
 post '/find-by-address' => sub {
     my $params = params;
 
+    debug("looking up $params->{address}");
+
     if ( not $params->{address} ) {
         send_error('Error: address is required.', 400 );
     }
 
-    my $log = path('/var/log/ContactMyReps-queries.txt');
+    my $logfile = path('/var/log/ContactMyReps-queries.txt');
 
-    $log->append("$params->{address}\n");
+    $logfile->append("$params->{address}\n");
 
     my $client = Net::Google::CivicInformation::Representatives->new;
 
@@ -45,6 +47,8 @@ post '/find-by-address' => sub {
     else {
         $result{officials} = decode_utf8(encode_json($response->{officials}));
     }
+
+    debug('returning response');
 
     return template 'find-by-address', \%result;
 };

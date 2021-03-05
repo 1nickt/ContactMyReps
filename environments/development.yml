@@ -1,10 +1,5 @@
 # configuration file for development environment
 
-# the logger engine to use
-# console: log messages to STDOUT (your console where you started the
-#          application server)
-# file:    log message to a file in log/
-logger: "console"
 
 # the log level for this environment
 # core is the lowest, it shows Dancer2's core log messages as well as yours
@@ -12,7 +7,7 @@ logger: "console"
 log: "debug"
 
 # should Dancer2 consider warnings as critical errors?
-warnings: 0 
+warnings: 0
 
 # should Dancer2 show a stacktrace when an 5xx error is caught?
 # if set to yes, public/500.html will be ignored and either
