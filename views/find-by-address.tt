@@ -3,6 +3,15 @@
 <!--  v                                 -->
       <div>
         <br>
+
+        <b>This site no longer works.</b>
+        <p>
+          In April 2025 Google terminated the API that this site depended on,<br>
+          so we are no longer able to provide Representatives lookups for US
+          addresses.<br>Thanks for four good years!
+        </p>
+<!--
+
         <h3>Find your elected representatives</h3>
 
         <p>
@@ -44,6 +53,8 @@
         <script>
             $("#lookup").validate();
         </script>
+
+-->
 
       </div>
 

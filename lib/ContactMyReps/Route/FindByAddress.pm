@@ -21,6 +21,8 @@ get '/find-by-address' => sub {
     return template 'find-by-address';
 };
 
+=pod
+
 post '/find-by-address' => sub {
     my $params = params;
 
@@ -47,6 +49,8 @@ post '/find-by-address' => sub {
 
     return template 'find-by-address', \%result;
 };
+
+=cut
 
 1; # return true
 
