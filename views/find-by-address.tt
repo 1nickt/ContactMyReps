@@ -53,6 +53,7 @@
       </span>
 [% END %]
 
+
 [% IF legislators %]
       <div class="bmc" style="width: 596px; display: flex; justify-content: center">
         <table style="width: 400px align-self: center">
@@ -64,11 +65,8 @@
             </td>
           </tr>
           <tr>
-            <td style="valign: bottom; text-align: right">
-              <span style="font-size: 80%">If you'd like to support this site, please</span>
-            </td>
-            <td style="text-align: right">
-              <a href="https://www.buymeacoffee.com/contactmyreps" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 108px !important;" ></a>
+            <td style="text-align: center; vertical-align: middle; display: flex; justify-content: center; align-items: center;">
+              <span style="font-size: 80%">If you'd like to support this site, please &nbsp; </span> <a href="https://www.buymeacoffee.com/contactmyreps" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 108px !important;" ></a>
             </td>
           </tr>
         </table>
@@ -89,7 +87,6 @@
           </thead>
         </table>
       </div>
-
       <script>
 
           function format (row) {
