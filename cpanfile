@@ -3,7 +3,8 @@ requires 'Dancer2::Logger::LogAny';
 requires 'Dancer2::Plugin::reCAPTCHA';
 requires 'Dancer2::Plugin::Email';
 requires 'Log::Any::Adapter::JSON';
-requires 'Net::Google::CivicInformation::Representatives';
+requires 'WebService::Geocodio';
+requires 'WebService::OpenStates';
 requires 'Try::Tiny';
 
 recommends "YAML::XS"         => "0";
