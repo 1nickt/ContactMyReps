@@ -14,7 +14,7 @@ use Dancer2 appname => 'ContactMyReps';
 use Encode;
 use Try::Tiny;
 
-use WebService::GeoCodio;
+use WebService::Geocodio;
 use WebService::OpenStates;
 
 get '/find-by-address' => sub {
