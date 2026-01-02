@@ -2,20 +2,10 @@
 <!--  |                                 -->
 <!--  v                                 -->
       <div>
-        <br>
-
-        <b>This site no longer works.</b>
-        <p>
-          In April 2025 Google terminated the API that this site depended on,<br>
-          so we are no longer able to provide Representatives lookups for US
-          addresses.<br>Thanks for four good years!
-        </p>
-<!--
-
         <h3>Find your elected representatives</h3>
 
         <p>
-          Enter your address and get a list of all your elected representatives with their contact information.
+          Enter your address and get a list of your elected representatives with their contact information.
         </p>
         <p>
           Then make your voice heard!
@@ -53,9 +43,6 @@
         <script>
             $("#lookup").validate();
         </script>
-
--->
-
       </div>
 
 [% IF error %]
@@ -66,12 +53,14 @@
       </span>
 [% END %]
 
-[% IF officials %]
+[% IF legislators %]
       <div class="bmc" style="width: 596px; display: flex; justify-content: center">
         <table style="width: 400px align-self: center">
           <tr>
             <td colspan=2 style="text-align: center">
-              <strong>Here are your representatives.</strong>
+              <strong>Here are your representatives.</strong><br>
+              You searched for: [% address %]<br>
+              Results are provided for: [% found_address %]
             </td>
           </tr>
           <tr>
@@ -85,7 +74,7 @@
         </table>
       </div>
       <div>
-        <table id="officials" class="cell-border compact display" style="width: 600px; float: left">
+        <table id="legislators" class="cell-border compact display" style="width: 600px; float: left">
           <thead>
             <tr>
               <th>
@@ -107,13 +96,13 @@
               // `row` is the original data object for the row
               var out = '<table cellpadding="4" cellspacing="0" border="0" style="padding-left:50px;" class="compact display">'+
                   '<tr>'+
-                    '<td class="vtop">Name:</td>'+
-                    '<td class="vtop">'+ row.name +'</td>'+
+                    '<td class="vtop">Title:</td>'+
+                    '<td class="vtop">'+ row.title +'</td>'+
                   '</tr>'+
 
                   '<tr>'+
-                    '<td class="vtop">Title:</td>'+
-                    '<td class="vtop">'+ row.title +'</td>'+
+                    '<td class="vtop">Name:</td>'+
+                    '<td class="vtop">'+ row.name +'</td>'+
                   '</tr>'+
 
                   '<tr>'+
@@ -122,88 +111,38 @@
                   '</tr>'+
 
                   '<tr>'+
-                    '<td style="vertical-align: top">Addresses:</td>'+
+                    '<td style="vertical-align: top">Offices:</td>'+
                     '<td style="vertical-align: top">';
 
-                       $.each(row.addresses, function( index ) {
-                           var address = row.addresses[index];
-                           out += address.line1;
-                           if (typeof address.line2 !== 'undefined') {
-                               out += ' '+ address.line2;
-                           }
-                           out += '<br>'+ address.city +' '+ address.state +' '+ address.zip + '<br>';
+                       $.each(row.offices, function( index ) {
+                           var office = row.offices[index];
+                           out += '<p>' + office.name;
+                           out += '<br>' + office.address;
+                           out += '<br>' + office.phone + '</p>';
                       });
 
                       out += '</td>' +
                   '</tr>'+
                   '<tr>'+
-                    '<td style="vertical-align: top">Phone numbers:</td>'+
+                    '<td style="vertical-align: top">Links:</td>'+
                     '<td style="vertical-align: top">';
 
-                       $.each(row.phone_numbers, function( index ) {
-                           var phone_number = row.phone_numbers[index];
-                           out += phone_number +'<br>';
+                       $.each(row.links, function( index ) {
+                           var url = row.links[index];
+                           out += '<a href=' + url + '>' + url + '</a><br>';
                       });
 
-                      out += '</td>' +
+                    out += '</td>' +
                   '</tr>';
 
                   out += '<tr>'+
-                    '<td style="vertical-align: top">Email addresses:</td>'+
-                    '<td style="vertical-align: top">';
-
-                       $.each(row.emails, function( index ) {
-                           var email = row.emails[index];
-                           out += email +'<br>';
-                      });
-
-                      out += '</td>' +
-                  '</tr>';
-
-                  out += '<tr>'+
-                    '<td style="vertical-align: top">Websites:</td>'+
-                    '<td style="vertical-align: top">';
-
-                       $.each(row.websites, function( index ) {
-                           var website = row.websites[index];
-                           out += '<a href="'+ website +'">'+ website +'</a><br>';
-                      });
-
-                      out += '</td>' +
-                  '</tr>';
-
-                  out += '<tr>'+
-                     '<td style="vertical-align: top">Social media:</td>'+
-                     '<td style="vertical-align: top">'+
-                       '<table cellpadding="4" cellspacing="0" border="0" class="compact display">';
-
-                       $.each(row.social_media, function( index ) {
-                           var media = row.social_media[index];
-                           out += '<tr><td>';
-
-                           if ( media.type == 'Facebook' ) {
-                               out += '<img src="/facebook-logo.png"></td>'+
-                               '</td><td><a target="_new" href="https://www.facebook.com/'+ media.id +'">'+ media.id + '</a></td>';
-                           }
-
-                           else if ( media.type == 'Twitter' ) {
-                               out += '<img src="/twitter-logo.png"></td>'+
-                               '</td><td><a target="_new" href="https://twitter.com/'+ media.id +'">'+ media.id + '</a></td>';
-                           }
-
-                           else if ( media.type == 'YouTube' ) {
-                               out += '<img src="/youtube-logo.png"></td>'+
-                               '</td><td><a target="_new" href="https://youtube.com/'+ media.id +'">'+ media.id + '</a></td>';
-                           }
-
-                           else {
-                               out += media.type + '</td><td>'+ media.id +'</td>';
-                           }
-
-                          out += '</tr>';
-                      });
-
-                      out += '</table></td>' +
+                    '<td style="vertical-align: top">Email address:</td>'+
+                    '<td style="vertical-align: top">'+
+                        (row.email.startsWith('http') ?
+                        '<a href=' + row.email + '>' + row.email + '</a>' :
+                        '<a href=mailto:' + row.email + '>' + row.email + '</a>')
+                      +'<br>'+
+                    '</td>' +
                   '</tr>';
 
               out += '</table>';
@@ -213,7 +152,7 @@
 
           $(document).ready( function () {
 
-              var table = $('#officials').DataTable({
+              var table = $('#legislators').DataTable({
                   columns  : [
                       { data : 'title' },
                       { data : 'name' },
@@ -224,14 +163,14 @@
                         defaultContent : ''
                       }
                   ],
-                  data     : [%- officials -%],
+                  data     : [%- legislators -%],
                   dom      : 't',
                   ordering : false,
                   paging   : false
               });
 
               // Add event listener for opening and closing details
-              $('#officials tbody').on('click', 'td.details-control', function () {
+              $('#legislators tbody').on('click', 'td.details-control', function () {
                   var tr = $(this).closest('tr');
                   var row = table.row( tr );
 
