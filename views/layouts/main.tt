@@ -46,10 +46,10 @@
 [% content %]
       <div class="footer">
         <p style="padding: 4px">
-        Provided by <a target="_new" href="https://nicktonkin.net">nicktonkin.net</a>. Built in the <a target="_new" href="https://perl.org">Perl programming language</a>
-        on the <a target="_new" href="https://metacpan.org/pod/Dancer2">Dancer2</a> web app platform using the Open States API
-        communicating via an <a target="_new" href="https://metacpan.org/pod/WebService::OpenStates">open source Perl client</a>.<br>
-      </p>
+          Provided by <a target="_new" href="https://nicktonkin.net">nicktonkin.net</a>. Built in the <a target="_new" href="https://perl.org">Perl programming language</a>
+          on the <a target="_new" href="https://metacpan.org/pod/Dancer2">Dancer2</a> web app platform using the Open States API
+          communicating via an <a target="_new" href="https://metacpan.org/pod/WebService::OpenStates">open source Perl client</a>.<br>
+        </p>
       </div>
     </div>
   </body>

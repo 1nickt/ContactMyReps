@@ -1,7 +1,7 @@
 <!-- Begin template [% template.name %] -->
 <!--  |                                 -->
 <!--  v                                 -->
-      <div>
+      <div class="find-div">
         <h3>Find your elected representatives</h3>
 
         <p>
@@ -13,16 +13,14 @@
 
         <form id='lookup' method="post" action="/find-by-address">
           <p>
-            <table style="border: 1px solid black; background: #f9f9ff; width: 600px">
+            <table class="lookup-table" style="border: 1px solid black; background: #f9f9ff;">
               <tr>
-                <td align="right" class="nowrap">
-                   Address:
-                </td>
                 <td>
+                  Address:<br>
                   <input id="address"
+                         type="text"
                          name="address"
-                         size="60"
-                         placeholder="Enter a U.S. address or zip code"
+                         placeholder="Enter a U.S. address"
                          [%- IF address -%]
                            value="[%- address -%]"
                          [%- END -%]
@@ -30,8 +28,6 @@
                 </td>
               </tr>
               <tr>
-                <td>
-                </td>
                 <td>
                   <input type="submit" value="Submit&nbsp;query">
                 </td>

@@ -1,9 +1,9 @@
 <!-- Begin template [% template.name %] -->
 <!--  |                                 -->
 <!--  v                                 -->
-      <div class='contact-container'>
+      <div class='email-container'>
         <h2>Contact us</h2>
-        <form id='contact-form' method="post" action="/contact">
+        <form id='email-form' method="post" action="/email">
           <p>
             If you'd like to get in touch with us, please use this form.
           </p>
@@ -33,7 +33,7 @@
           </p>
         </form>
         <script>
-          $('#contact-form').validate({
+          $('#email-form').validate({
               rules: {
                   sender: { email: true, equalTo: '#sender_confirm', required: true },
                   sender_confirm: { email: true, equalTo: '#sender', required: true },

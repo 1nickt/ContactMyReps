@@ -1,6 +1,6 @@
 =head1 NAME
 
-ContactMyReps::Route::Contact - Handles /contact
+ContactMyReps::Route::Email - Handles /email
 
 =head1 DESCRIPTION
 
@@ -8,18 +8,18 @@ Sends content from a form via email.
 
 =cut
 
-package ContactMyReps::Route::Contact;
+package ContactMyReps::Route::Email;
 
 use Dancer2 appname => 'ContactMyReps';
 use Dancer2::Plugin::Email;
 use Try::Tiny;
 
-get '/contact' => sub {
+get '/email' => sub {
     my $params = params;
-    return template 'contact';
+    return template 'email';
 };
 
-post '/contact' => sub {
+post '/email' => sub {
     my $params = params;
 
     try {

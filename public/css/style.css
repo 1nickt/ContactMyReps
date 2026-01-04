@@ -119,12 +119,33 @@ a.menu-link:hover, a.menu-link:active {
   font-size:    50%;
   background:   #f2f2f2;
   color:        #666666;
-  width:        600px;
 }
 
 .footer a:link, .footer a:visited {
     color:           #000000;
     text-decoration: none ;
+}
+
+.footer {
+    width: 95vw;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 601px) {
+    .footer {
+        width: 600px;
+    }
+}
+
+.lookup-table {
+    width: 95vw;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 601px) {
+    .lookup-table {
+        width: 600px;
+    }
 }
 
 td.details-control {
@@ -133,4 +154,30 @@ td.details-control {
 }
 tr.shown td.details-control {
     background: url('/details_close.png') no-repeat center center;
+}
+
+/* Text box input */
+
+input[type="text"] {
+    width:      90vw;
+    box-sizing: border-box;
+}
+
+/* Non-mobile devices */
+@media screen and (min-width: 601px) {
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+/* The lookup form div */
+.find-div {
+    width: 95vw;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 601px) {
+    .find-div {
+        width: 600px;
+    }
 }
